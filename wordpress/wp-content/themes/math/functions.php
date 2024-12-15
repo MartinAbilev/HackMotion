@@ -317,3 +317,9 @@ function handle_get_video_timestamps_request() {
 
 add_action('wp_ajax_get_video_timestamps', 'handle_get_video_timestamps_request'); // For logged-in users
 add_action('wp_ajax_nopriv_get_video_timestamps', 'handle_get_video_timestamps_request'); // For logged-out users
+
+add_action('init', function() {
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+    header("Access-Control-Allow-Headers: Content-Type, Authorization");
+});
