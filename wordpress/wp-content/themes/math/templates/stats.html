@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+
+<script>
+
+    const app = document.getElementById('app')
+
+    // This is the function to get the list of timestamps
+    function get_video_timestamps()
+    {
+        const nonce = 'your_nonce_here'
+        const data =
+        {
+            action: 'get_video_timestamps',
+            nonce: nonce // Nonce for security
+        }
+
+        fetch('/wp-admin/admin-ajax.php',
+        {
+            method: 'POST',
+            headers:
+            {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams(data)
+        })
+        .then(response => response.json())
+        .then(data =>
+        {
+            if (data.success)
+            {
+                console.log('Video Timestamps:', data.data)
+                const formattedJSON = JSON.stringify(data.data, null, 2)
+                app.innerHTML = `<pre>${formattedJSON}</pre>`
+            }
+            else
+            {
+                console.log('Error:', data.message)
+            }
+        })
+        .catch(error => console.log(error))
+    }
+
+    get_video_timestamps();
+
+</script>
+
+
+</body>
+</html>

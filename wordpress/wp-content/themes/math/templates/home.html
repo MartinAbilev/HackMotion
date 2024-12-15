@@ -1,0 +1,396 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HackMotion</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+
+	<style>
+        /* Define the custom fonts */
+
+		@font-face {
+            font-family: 'IBMPlexSansThin';
+            src: url('/wp-content/themes/math/assets/fonts/IBMPlexSans/IBMPlexSans-Thin.ttf') format('truetype');
+            font-weight: font-thin;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'IBMPlexSansRegular';
+            src: url('/wp-content/themes/math/assets/fonts/IBMPlexSans/IBMPlexSans-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+		@font-face {
+            font-family: 'IBMPlexSansMedium';
+            src: url('/wp-content/themes/math/assets/fonts/IBMPlexSans/IBMPlexSans-Medium.ttf') format('truetype');
+            font-weight: medium;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'IBMPlexSansBold';
+            src: url('/wp-content/themes/math/assets/fonts/IBMPlexSans/IBMPlexSans-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        /* Apply the font globally or to specific elements */
+        body {
+            font-family: 'IBMPlexSansMedium', sans-serif;
+			background-color: #E6E6E6;
+        }
+
+		.accent {
+			color: #5773FF;
+		}
+
+        h1 {
+            font-weight: bold;
+        }
+
+		.video-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+		.scroll-indicator {
+            height: 100%;
+            background: #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+		.scroll-indicator.sind-h {
+            height: 1rem;
+			width: 100%;
+		}
+
+        .scroll-indicator-bar {
+            height: 4rem; /* Fixed size */
+            background: #007bff;
+            position: absolute;
+            top: 0; /* Start at the top */
+            transition: top 0.1s linear;
+        }
+		.scroll-indicator-bar.sind-h {
+			height: 0.5rem;
+			width: 4rem;
+			top: 0.25rem;
+			left: 0;
+			transition: left 0.1s linear;
+		}
+
+		/* 1296 */
+
+    </style>
+
+</head>
+
+<body class="">
+	<div class="md:p-10 md:pt-4">
+		<div class="hidden lg:block">
+			<img src="/wp-content/themes/math/assets/images/Logo.png" alt="">
+		</div>
+		<div class="md:h-16"></div>
+		<section id="offer-section" class="px-4 md:px-16">
+			<div class="lg:flex justify-start gap-x-8">
+				<div id="A-A" class="flex flex-col justify-center items-start">
+					<div>
+						<div class="text-3xl font-medium">
+							We have put together a swing improvement solution to help you
+						</div>
+						<div id="break" class="accent text-3xl font-medium">
+							break AWAY
+						</div>
+					</div>
+
+					<div class="py-4 min-w-full">
+						<div class="pr-4">
+							<div class="py-2 font-normal" style="font-family: 'IBMPlexSansRegular', sans-serif;">
+								Pack includes:
+							</div>
+							<div class="py-2 border-t border-black/10"></div>
+							<div class="font-medium border-l-4 border-indigo-500 gap-y-2">
+								<div class="flex flex-col px-4 gap-y-2 text-2xl">
+									<div>
+										Swing Analyzer -  HackMotion Core
+									</div>
+									<div>
+										Drills by coach Tyler Ferrell
+									</div>
+									<div>
+										Game improvement plan by HackMotion
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="py-6">
+							<button class="bg-blue-500 hover:bg-blue-700 text-white text-base py-4 px-6 rounded-full" onclick="scrollToSection('#coaching-section')">
+								<div class="flex items-center space-x-2 whitespace-nowrap">
+								  <span>Start Now</span>
+								  <img src="/wp-content/themes/math/assets/icons/arrow-right.svg" alt="Arrow" class="w-4 h-4 invert">
+								</div>
+							  </button>
+						</div>
+					</div>
+				</div>
+				<div class="">
+					<div class="pb-4">
+						<img src="/wp-content/themes/math/assets/images/ImprovementGraph.png" class="min-w-full"/>
+					</div>
+					<div class="pb-4 hidden lg:block">
+						<img src="/wp-content/themes/math/assets/images/Frame4151179.png" class=""/>
+					</div>
+					<div class="pb-4 lg:hidden block">
+						<img src="/wp-content/themes/math/assets/images/ImprovementProgressbar.png" class="min-w-full"/>
+					</div>
+					<div class="pb-4 lg:hidden block">
+						<img src="/wp-content/themes/math/assets/images/Frame4151178.png" class="min-w-full"/>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<div class="h-20 hidden lg:block"></div>
+		<div class="h-20 hidden lg:block"></div>
+		<div class="h-20 hidden lg:block"></div>
+		<section id="coaching-section" class="px-4 md:px-16">
+			<div>
+				<div>
+					<div class="py-12 font-medium text-5xl accent">
+						The best solution for you: Impact Training Program
+					</div>
+
+					<div class="py-8 border-t border-black/10"></div>
+
+					<div class="lg:flex justify-start">
+						<div class="player flex">
+							<div class="video-container min-w-full md:min-w-0" style="width: max-content;">
+								<video id="video" class="min-w-full md:min-w-0" width="746" height="510" autoplay muted playsinline loop preload="auto">
+									<source src="/wp-content/themes/math/assets/video/Impact-Drill.mp4" type="video/mp4">
+									Your browser does not support the video tag.
+								</video>
+							</div>
+							<div class="px-6 hidden lg:block"></div>
+							<div class="flex scroll-indicator rounded-full w-4 justify-center hidden lg:flex">
+								<div class="scroll-indicator-bar rounded-full w-2" id="scroll-bar"></div>
+							</div>
+							<div class="px-6 hidden lg:block"></div>
+						</div>
+
+						<div class="py-6 lg:hidden block"></div>
+
+						<div class="flex scroll-indicator sind-h rounded-full w-4 justify-center lg:hidden">
+							<div class="scroll-indicator-bar sind-h rounded-full w-2" id="scroll-bar-h"></div>
+						</div>
+
+						<div class="flex flex-col gap-y-2 w-full">
+							<div class="">
+								<div class="h-4"></div>
+								<div class="accent">
+									<div class="flex items-center space-x-2 whitespace-nowrap">
+										<img src="/wp-content/themes/math/assets/icons/chevron-up.svg" alt="Chevron" class="w-4 h-4 chev1">
+										<span>Static top drill</span>
+									</div>
+								</div>
+								<div class="h-2"></div>
+								<div id="t1" class="break-words" style="font-family: 'IBMPlexSansRegular', sans-serif;">
+									Get a feel for the optimal wrist position at Top of your swing
+								</div>
+								<div class="border-t border-black/10"></div>
+							</div>
+							<div class="">
+								<div class="h-4"></div>
+								<div class="accent">
+									<div class="flex items-center space-x-2 whitespace-nowrap">
+										<img src="/wp-content/themes/math/assets/icons/chevron-up.svg" alt="Chevron" class="w-4 h-4 chev2">
+										<span>Dynamic top drill</span>
+									</div>
+								</div>
+								<div class="h-2"></div>
+								<div id="t2" class="break-words" style="font-family: 'IBMPlexSansRegular', sans-serif;">
+									Dynamically train your wrist position at Top
+								</div>
+								<div class="border-t border-black/10"></div>
+							</div>
+							<div class="">
+								<div class="h-4"></div>
+								<div class="accent">
+									<div class="flex items-center space-x-2 whitespace-nowrap">
+										<img src="/wp-content/themes/math/assets/icons/chevron-up.svg" alt="Chevron" class="w-4 h-4 chev3">
+										<span>Top full swing challenge</span>
+									</div>
+								</div>
+								<div class="h-2"></div>
+								<div id="t3" class="break-words" style="font-family: 'IBMPlexSansRegular', sans-serif;">
+									Train your maximum power swing
+								</div>
+								<div class="border-t border-black/10"></div>
+							</div>
+						</div>
+						<br>
+
+					</div>
+				</div>
+			</div>
+
+		</section>
+	</div>
+	<div class="h-20"></div>
+	<div class="flex text-white text-center bg-black h-16 text-sm tracking-wider font-thin items-center justify-center" style="font-family: 'IBMPlexSansThin', sans-serif;">
+		Copyright 2023 © HackMotion | All Rights Reserved
+	</div>
+</body>
+
+<script>
+
+	const loc = window.location
+	const drops =
+	[
+		document.getElementById('t1'),
+		document.getElementById('t2'),
+		document.getElementById('t3'),
+	]
+
+	const chevs =
+	[
+		document.getElementsByClassName('chev1')[0],
+		document.getElementsByClassName('chev2')[0],
+		document.getElementsByClassName('chev3')[0],
+	]
+
+	const breaks =
+	[
+		'break Par',
+		'break 80',
+		'break 90',
+		'break 100',
+	]
+
+	drops.forEach(drop=>
+	{
+		drop.hidden = true
+	})
+	console.log('RUN', loc)
+
+	document.getElementById('break').setHTMLUnsafe( breaks[loc.search.replace('?', '')] || breaks[0] )
+
+	function toggleChevron(chevron)
+	{
+		chevron.classList.toggle('rotate-180')
+  	}
+
+	function setDown(chevron)
+	{
+		chevron.classList.add('rotate-180');
+	}
+
+	function setUp(chevron)
+	{
+		chevron.classList.remove('rotate-180');
+	}
+
+	function scrollToSection(target)
+	{
+    	const section = document.querySelector(target);
+    	if (section)
+		{
+      		section.scrollIntoView({ behavior: 'smooth' })
+    	}
+  	}
+
+	window.addEventListener("load", (event) =>
+	{
+		let userId = localStorage.getItem('userId')
+
+        if (!userId)
+		{
+            console.log('User ID not found in localStorage!')
+			userId = crypto.randomUUID()
+			localStorage.setItem('userId', userId)
+
+        }
+		else
+		{
+			console.log('User ID:', userId)
+		}
+
+		console.log("page is fully loaded")
+
+		// Helper function to send AJAX request
+		const saveTimestamp = (event) =>
+		{
+
+			fetch(ajaxData.ajax_url,
+			{
+				method: 'POST',
+				headers:
+				{
+					'Content-Type': 'application/x-www-form-urlencoded',
+				},
+				body: new URLSearchParams({
+					action: 'save_video_timestamp',
+					nonce: ajaxData.nonce,
+					event: event,
+					user_id: userId,
+					url: loc.href,
+					timestamp: new Date().toISOString(),
+				}),
+			})
+			.then((response) => response.json())
+			.then((data) => console.log(data))
+			.catch((error) => console.error('Error:', error))
+		}
+
+        // Store timestamp when the page is opened
+        saveTimestamp('page_opened')
+
+        const video = document.getElementById('video')
+        const scrollBar = document.getElementById('scroll-bar')
+        const scrollBarH = document.getElementById('scroll-bar-h')
+        const scrollIndicator = document.querySelector('.scroll-indicator')
+        const scrollIndicatorH = document.querySelector('.scroll-indicator.sind-h')
+
+		let vfirst = true
+        // Update scroll bar position as the video plays
+        video.addEventListener('timeupdate', () =>
+		{
+            const progress = (video.currentTime / video.duration) * 100
+
+            const scrollIndicatorHeight = scrollIndicator.offsetHeight
+            const barHeight = scrollBar.offsetHeight
+
+			const scrollIndicatorWidth = scrollIndicatorH.offsetWidth
+            const barWidth = scrollBarH.offsetWidth
+
+            // Calculate the new top position
+            const newTop = (progress / 100) * (scrollIndicatorHeight - barHeight)
+            scrollBar.style.top = `${newTop}px`
+
+			// Calculate the new left position
+			const newLeft = (progress / 100) * (scrollIndicatorWidth - barWidth)
+            scrollBarH.style.left = `${newLeft}px`
+
+			// console.log('Video progress:', progress, video.paused)
+
+			progress > 7 && progress < 34 ?
+			(drops[0].hidden = false, setDown(chevs[0])) : (drops[0].hidden = true, setUp(chevs[0]))
+			progress > 36 && progress < 60 ?
+			(drops[1].hidden = false, setDown(chevs[1])) : (drops[1].hidden = true, setUp(chevs[1]))
+			progress > 64 && progress < 90 ?
+			(drops[2].hidden = false, setDown(chevs[2])) : (drops[2].hidden = true, setUp(chevs[2]))
+			// Store timestamp when the video ends
+			if(progress > 90 && vfirst)
+			{
+				vfirst = false
+				 saveTimestamp('video_ended')
+			}
+        })
+	});
+
+</script>
+
+</html>
