@@ -224,6 +224,7 @@ function handle_video_timestamp_request() {
 	$user_id = sanitize_text_field($_POST['user_id']); // Should be UUID
 	$event = sanitize_text_field($_POST['event']);
 	$url = sanitize_text_field($_POST['url']);
+	$ip = sanitize_text_field($_POST['ip']);
 	$timestamp = current_time('mysql');
 
 	// Check if the UUID is present
@@ -259,15 +260,7 @@ function handle_video_timestamp_request() {
 		$device_info = 'Desktop';
 	}
 
-	// Get User IP
-	$user_ip = '';
-	if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-		$user_ip = $_SERVER['HTTP_CLIENT_IP'];
-	} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-		$user_ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-	} else {
-		$user_ip = $_SERVER['REMOTE_ADDR'];
-	}
+	$user_ip = $ip;
 
 	// Insert into database
 	$table_name = $wpdb->prefix . 'video_timestamps'; // Replace with your table name
